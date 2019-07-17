@@ -47,10 +47,10 @@ function getDogBreedsOnPage(json) {
         dogBreed.style = 'padding-bottom: 10px;cursor: pointer;';
         // append breed to dogBreed container
         dogBreedContainer.append(dogBreed);
-        dogBreed.addEventListener('click', evnt => {
-          evnt.target.style =
-            'padding-bottom: 10px;cursor: pointer;color:blue;';
-        });
+        // dogBreed.addEventListener('click', evnt => {
+        //   evnt.target.style =
+        //     'padding-bottom: 10px;cursor: pointer;color:blue;';
+        // });
       } else {
         // loop through array
         for (const subBreed of breedList) {
@@ -62,14 +62,18 @@ function getDogBreedsOnPage(json) {
           dogBreed.style = 'padding-bottom: 10px;cursor: pointer;';
           // append breed to dogBreed container
           dogBreedContainer.append(dogBreed);
-          dogBreed.addEventListener('click', evnt => {
-            evnt.target.style =
-              'padding-bottom: 10px;cursor: pointer;color:blue;';
-          });
+          // dogBreed.addEventListener('click', evnt => {
+          //   evnt.target.style =
+          //     'padding-bottom: 10px;cursor: pointer;color:blue;';
+          // });
         }
       }
     }
   }
+
+  dogBreedContainer.addEventListener('click', event => {
+    event.target.style = 'color:blue;';
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {

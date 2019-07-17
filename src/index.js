@@ -47,10 +47,10 @@ function getDogBreedsOnPage(json) {
         dogBreed.style = 'padding-bottom: 10px;cursor: pointer;';
         // append breed to dogBreed container
         dogBreedContainer.append(dogBreed);
-        // dogBreed.addEventListener('click', evnt => {
-        //   evnt.target.style =
-        //     'padding-bottom: 10px;cursor: pointer;color:blue;';
-        // });
+        dogBreed.addEventListener('click', evnt => {
+          evnt.target.style =
+            'padding-bottom: 10px;cursor: pointer;color:blue;';
+        });
       } else {
         // loop through array
         for (const subBreed of breedList) {
@@ -62,21 +62,36 @@ function getDogBreedsOnPage(json) {
           dogBreed.style = 'padding-bottom: 10px;cursor: pointer;';
           // append breed to dogBreed container
           dogBreedContainer.append(dogBreed);
-          // dogBreed.addEventListener('click', evnt => {
-          //   evnt.target.style =
-          //     'padding-bottom: 10px;cursor: pointer;color:blue;';
-          // });
+          dogBreed.addEventListener('click', evnt => {
+            evnt.target.style =
+              'padding-bottom: 10px;cursor: pointer;color:blue;';
+          });
         }
       }
     }
   }
+  // dogBreedContainer.addEventListener('click', event => {
+  //   event.target.style = 'color:blue;';
+  // });
+}
 
-  dogBreedContainer.addEventListener('click', event => {
-    event.target.style = 'color:blue;';
+function filterDogBreeds() {
+  let dropDown = document.querySelector('#breed-dropdown');
+  dropDown.addEventListener('change', event => {
+    let breedList = document.querySelectorAll('li');
+    console.log(event.target.value);
+    breedList.forEach(breed => {
+      if (breed.innerText.charAt(0) != event.target.value) {
+        breed.style.display = 'none';
+      } else {
+        breed.style.display = 'block';
+      }
+    });
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   getDoggieData(dogImgUrl, getDogPicturesOnPage);
   getDoggieData(dogBreedUrl, getDogBreedsOnPage);
+  filterDogBreeds();
 });

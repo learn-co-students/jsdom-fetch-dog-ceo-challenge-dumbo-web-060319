@@ -2,7 +2,6 @@
 
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 
-
 fetch(imgUrl)
 .then(function(response) {
   return response.json();
@@ -64,7 +63,6 @@ dropdown.addEventListener('change', function(e) {
   lis.forEach(function(elem) {
     if (elem.dataset.dogBreed != filterValue) {
       elem.hidden = true;
-
     }
     else {
       elem.hidden = false;

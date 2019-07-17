@@ -43,8 +43,14 @@ function getDogBreedsOnPage(json) {
         let dogBreed = document.createElement('li');
         // make the list item's text the name of the key
         dogBreed.innerText = dogBreedKey;
+        dogBreed.class = 'dog-breed-list-item';
+        dogBreed.style = 'padding-bottom: 10px;cursor: pointer;';
         // append breed to dogBreed container
         dogBreedContainer.append(dogBreed);
+        dogBreed.addEventListener('click', evnt => {
+          evnt.target.style =
+            'padding-bottom: 10px;cursor: pointer;color:blue;';
+        });
       } else {
         // loop through array
         for (const subBreed of breedList) {
@@ -52,8 +58,14 @@ function getDogBreedsOnPage(json) {
           let dogBreed = document.createElement('li');
           // make the list item's text the name of the key And value
           dogBreed.innerText = `${subBreed} ${dogBreedKey}`;
+          dogBreed.class = 'dog-breed-list-item';
+          dogBreed.style = 'padding-bottom: 10px;cursor: pointer;';
           // append breed to dogBreed container
           dogBreedContainer.append(dogBreed);
+          dogBreed.addEventListener('click', evnt => {
+            evnt.target.style =
+              'padding-bottom: 10px;cursor: pointer;color:blue;';
+          });
         }
       }
     }

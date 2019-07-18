@@ -50,6 +50,7 @@ function postImage(json) {
 
 function filter() {
 	let breedDropDown = document.querySelector("#breed-dropdown");
+	breedDropDown.value = "";
 	breedDropDown.addEventListener('change', e => {
 		document.querySelectorAll('.breed').forEach(element => {
 			// debugger
